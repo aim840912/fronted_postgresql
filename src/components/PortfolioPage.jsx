@@ -26,7 +26,7 @@ class PortfolioPage extends Component {
   }
   
   loadPost = (token) => {
-    fetch('http://localhost:8080/portfolio', {
+    fetch('8080/portfolio', {
       method: "GET",
       headers: {
         Authorization: 'Bearer ' + token
@@ -46,7 +46,7 @@ class PortfolioPage extends Component {
   }
 
   loadPatchPost = (urlId) => {
-    fetch('http://localhost:8080/surl/patch/' + urlId, {
+    fetch('/surl/patch/' + urlId, {
       method: "GET"
     }).then(res => {
       return res.json()
@@ -63,7 +63,7 @@ class PortfolioPage extends Component {
 
   deletePostHandler(urlId) {
     // console.log(this.props.token)
-    fetch('http://localhost:8080/surl/' + urlId, {
+    fetch('/surl/' + urlId, {
       method: 'DELETE',
       headers: {
         Authorization: 'Bearer ' + this.props.token
@@ -82,7 +82,7 @@ class PortfolioPage extends Component {
 
   editPostHandler(event, urlId) {
     event.preventDefault()
-    fetch('http://localhost:8080/surl/' + urlId, {
+    fetch('/surl/' + urlId, {
       method: 'PATCH',
       headers: {
         Authorization: 'Bearer ' + this.props.token,

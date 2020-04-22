@@ -32,7 +32,7 @@ function AddPortfolio(props) {
     function postHandler(e) {
         console.log(props.token)
         e.preventDefault()
-        fetch('http://localhost:8080/portfolio', {
+        fetch('/portfolio', {
             method: 'POST',
             body: JSON.stringify({
                 title: portfolio.title,

@@ -40,7 +40,7 @@ class App extends Component {
     }
 
     loadPost = (token) => {
-        fetch('http://localhost:8080/portfolio', {
+        fetch('/portfolio', {
             method: "GET",
             headers: {
                 Authorization: 'Bearer ' + token
@@ -60,11 +60,11 @@ class App extends Component {
         })
     }
 
-    loginWithFb=()=>{
-        fetch('http://localhost:8080/user/facebook',{
-            method:'GET'
-        })
-    }
+    // loginWithFb=()=>{
+    //     fetch('/user/facebook',{
+    //         method:'GET'
+    //     })
+    // }
 
     setAutoLogout = (milliseconds) => {
         setTimeout(() => {
@@ -82,7 +82,7 @@ class App extends Component {
 
     loginHandler = (event, authData) => {
         event.preventDefault()
-        fetch('http://localhost:8080/user/login', {
+        fetch('/user/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -130,7 +130,7 @@ class App extends Component {
     signupHandler = (event, authData) => {
         event.preventDefault()
         // fetch('https://authapi-264513.appspot.com/auth/signup', {
-        fetch('http://localhost:8080/user/signup', {
+        fetch('/user/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -178,11 +178,13 @@ class App extends Component {
                 <PortfolioPage token={this.state.token} />
 
             }
-            <Button  className="appButton" onClick={this.loginWithFb}><FacebookIcon/></Button>
+            <a href='http://localhost:8080/user/facebook'>
+                <Button onClick={this.loginWithFb}  ><FacebookIcon /></Button>
+            </a>
             <Footer />
         </Fragment >
     }
 }
 
-
+// <Button className="appButton" onClick={this.loginWithFb}><FacebookIcon /></Button>
 export default App
